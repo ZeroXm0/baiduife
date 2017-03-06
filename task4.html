@@ -1,0 +1,91 @@
+
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>task2_4</title>
+    <style>
+        span {
+            margin-left: 5px;
+            background: #6495ed;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="text"><br/><br/>
+    <button id="left_in">左侧入</button>
+    <button id="right_in">右侧入</button><br/><br/>
+    <button id="left_out">左侧出</button>
+    <button id="right_out">右侧出</button><br/><br/>
+
+    <!--队列-->
+    <div id="num">
+
+    </div>
+
+    <script>
+        (function(){
+            //获取元素
+            var input = document.getElementById("text");
+            var left_in = document.getElementById("left_in");
+            var right_in = document.getElementById("right_in");
+            var left_out = document.getElementById("left_out");
+            var right_out = document.getElementById("right_out");
+            var num = document.getElementById("num");
+
+            //点击时
+            function click () {
+                //左侧入
+                left_in.onclick = function (){
+                    var text = input.value;
+                    var number = isNaN(text);
+                    if (number != true){
+                        var list=document.createElement("span");
+                        var node = document.createTextNode(text);
+                        list.appendChild(node);  
+                        num.insertBefore(list,num.childNodes[0]);
+                    }else{
+                        alert("请输入数字哦~");
+                    }
+                }
+                //右侧入
+                right_in.onclick = function (){
+                    var text = input.value;
+                    var number = isNaN(text);
+                    if (number != true){
+                        var list=document.createElement("span");
+                        var node = document.createTextNode(text);
+                        list.appendChild(node);  
+                        num.appendChild(list);
+                    }else{
+                        alert("请输入数字哦~");
+                    }
+                }
+
+                // 左侧出
+                left_out.onclick = function (){
+                    var child=document.getElementsByTagName("span")[0];
+                    if (child){
+                        num.removeChild(child);
+                    }else{
+                        alert("队列已为空了哦~");
+                    }
+                }
+
+                // 右侧出
+                right_out.onclick = function (){
+                    var child = document.getElementsByTagName("span");
+                    if (child[0]){
+                        var nums =  child.length;
+                        num.removeChild(child[nums - 1]);
+                    }else{
+                        alert("队列已为空了哦~");
+                    }
+                }
+            }
+
+            click();
+        })()
+    </script>
+</body>
+    
+</html>
