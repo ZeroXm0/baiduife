@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>task2_5</title>
     <style>
-        span {
+        .num div {
             text-align: center;
             width: 30px;
             display: inline-block;
@@ -34,7 +34,7 @@
             var left_out = document.getElementById("left_out");
             var right_out = document.getElementById("right_out");
             var num = document.getElementById("num");
-            var span_list = document.getElementsByTagName("span");
+            var div_list = document.getElementsByTagName("div");
 
             //点击时
             function click () {
@@ -44,10 +44,10 @@
                     var number = isNaN(text);
                     if (number != true){
                         if(100 >= parseInt(text) && parseInt(text) >= 10){
-                            if (span_list.length > 60){
+                            if (div_list.length > 60){
                                 alert("队列中已有60个数字了哦~");
                             }else{
-                                var list=document.createElement("span");
+                                var list=document.createElement("div");
                                 var node = document.createTextNode(text);
                                 list.style.height =  text *2 + "px";
                                 list.appendChild(node);  
@@ -66,10 +66,10 @@
                     var number = isNaN(text);
                     if (number != true){
                         if(100 >= parseInt(text) && parseInt(text) >= 10){
-                            if (span_list.length > 60){
+                            if (div_list.length > 60){
                                 alert("队列中已有60个数字了哦~");
                             }else{
-                                var list=document.createElement("span");
+                                var list=document.createElement("div");
                                 var node = document.createTextNode(text);
                                 list.style.height =  text *2 + "px";
                                 list.appendChild(node);  
@@ -85,7 +85,7 @@
 
                 // 左侧出
                 left_out.onclick = function (){
-                    var child=document.getElementsByTagName("span")[0];
+                    var child=document.getElementsByTagName("div")[0];
                     if (child){
                         num.removeChild(child);
                     }else{
@@ -95,7 +95,7 @@
 
                 // 右侧出
                 right_out.onclick = function (){
-                    var child = document.getElementsByTagName("span");
+                    var child = document.getElementsByTagName("div");
                     if (child[0]){
                         var nums =  child.length;
                         num.removeChild(child[nums - 1]);
