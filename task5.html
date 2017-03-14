@@ -10,6 +10,8 @@
             display: inline-block;
             margin-left: 5px;
             background: #6495ed;
+            vertical-align:bottom;
+            margin-bottom: 5px;
         }
     </style>
 </head>
@@ -113,15 +115,15 @@
 
                 // 随机生成60个数
                 random.addEventListener('click',function(){
-                    var x = 60 - span_list.length;
-                    for(i=0 ;i<x;i++){
+                    num.innerHTML = "";
+                        for(i=0 ;i<60;i++){
                         var text = Math.floor(Math.random() * 90 + 10);
                         var list=document.createElement("span");
                         var node = document.createTextNode(text);
                         list.style.height =  text *2 + "px";
                         list.appendChild(node);  
                         num.appendChild(list);
-                    }
+                        }
                 })
 
             }
