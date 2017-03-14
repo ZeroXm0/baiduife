@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>task2_5</title>
     <style>
-        .num div {
+        span {
             text-align: center;
             width: 30px;
             display: inline-block;
@@ -19,6 +19,8 @@
     <button id="right_in">右侧入</button><br/><br/>
     <button id="left_out">左侧出</button>
     <button id="right_out">右侧出</button><br/><br/>
+    <button id="random">随机生成</button>
+    <button id="list">排序</button><br/><br/>
 
     <!--队列-->
     <div id="num">
@@ -34,7 +36,11 @@
             var left_out = document.getElementById("left_out");
             var right_out = document.getElementById("right_out");
             var num = document.getElementById("num");
-            var div_list = document.getElementsByTagName("div");
+            var list_main = document.getElementById("list");
+            var span_list = document.getElementsByTagName("span");
+            var random = document.getElementById("random");
+            var eva = 0;
+
 
             //点击时
             function click () {
@@ -44,10 +50,10 @@
                     var number = isNaN(text);
                     if (number != true){
                         if(100 >= parseInt(text) && parseInt(text) >= 10){
-                            if (div_list.length > 60){
+                            if (span_list.length > 60){
                                 alert("队列中已有60个数字了哦~");
                             }else{
-                                var list=document.createElement("div");
+                                var list=document.createElement("span");
                                 var node = document.createTextNode(text);
                                 list.style.height =  text *2 + "px";
                                 list.appendChild(node);  
@@ -66,10 +72,10 @@
                     var number = isNaN(text);
                     if (number != true){
                         if(100 >= parseInt(text) && parseInt(text) >= 10){
-                            if (div_list.length > 60){
+                            if (span_list.length > 60){
                                 alert("队列中已有60个数字了哦~");
                             }else{
-                                var list=document.createElement("div");
+                                var list=document.createElement("span");
                                 var node = document.createTextNode(text);
                                 list.style.height =  text *2 + "px";
                                 list.appendChild(node);  
@@ -85,7 +91,7 @@
 
                 // 左侧出
                 left_out.onclick = function (){
-                    var child=document.getElementsByTagName("div")[0];
+                    var child=document.getElementsByTagName("span")[0];
                     if (child){
                         num.removeChild(child);
                     }else{
@@ -95,7 +101,7 @@
 
                 // 右侧出
                 right_out.onclick = function (){
-                    var child = document.getElementsByTagName("div");
+                    var child = document.getElementsByTagName("span");
                     if (child[0]){
                         var nums =  child.length;
                         num.removeChild(child[nums - 1]);
@@ -103,9 +109,48 @@
                         alert("队列已为空了哦~");
                     }
                 }
+
+
+                // 随机生成60个数
+                random.addEventListener('click',function(){
+                    var x = 60 - span_list.length;
+                    for(i=0 ;i<x;i++){
+                        var text = Math.floor(Math.random() * 90 + 10);
+                        var list=document.createElement("span");
+                        var node = document.createTextNode(text);
+                        list.style.height =  text *2 + "px";
+                        list.appendChild(node);  
+                        num.appendChild(list);
+                    }
+                })
+
+            }
+            // 冒泡排序
+                list_main.onclick = function (){
+                    eva = 1;
+                    var y = span_list.length - 1;
+                    for(var i = 0;i < y;i++) {
+                        var n =  y-i;
+                        for (var j = 0 ; j < n ;j++) {
+                            var list_1 = parseInt(span_list[j].innerHTML);
+                            var list_2 = parseInt(span_list[j + 1].innerHTML);
+                            console.log(list_1);
+                            if (list_1 > list_2) {
+                                console.log("2");
+                                later = span_list[j];
+                                span_list[j] = span_list[j + 1];
+                                span_list[j + 1] = later;
+                                num.insertBefore(span_list[j+1],span_list[j]);
+                            }
+                        }
+                    }
             }
 
-            click();
+            if(eva !=0){
+                alert("正在排序哦！");
+            }else{
+                click();
+            }
         })()
     </script>
 </body>
