@@ -67,6 +67,8 @@
                                     list.style.height = text * 2 + "px";
                                     list.appendChild(node);
                                     num.insertBefore(list, num.childNodes[0]);
+                                    //一次随机排序后，将第一个永远置为原始色
+                                    span_list[0].style.backgroundColor = "#d6ecf0";
                                 }
                             } else {
                                 alert("请输入10~100的数字哦~");
