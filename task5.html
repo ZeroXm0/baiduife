@@ -61,6 +61,7 @@
                                 if (span_list.length > 60) {
                                     alert("队列中已有60个数字了哦~");
                                 } else {
+                                    eva = 0;
                                     var list = document.createElement("span");
                                     var node = document.createTextNode(text);
                                     list.style.height = text * 2 + "px";
@@ -87,6 +88,7 @@
                                 if (span_list.length > 60) {
                                     alert("队列中已有60个数字了哦~");
                                 } else {
+                                    eva = 0;
                                     var list = document.createElement("span");
                                     var node = document.createTextNode(text);
                                     list.style.height = text * 2 + "px";
@@ -107,6 +109,7 @@
                     if (eva == 1) {
                         alert("正在排序哦！");
                     } else {
+                        eva = 0;
                         if (span_list[0]) {
                             num.removeChild(span_list[0]);
                         } else {
@@ -120,6 +123,7 @@
                     if (eva == 1) {
                         alert("正在排序哦！");
                     } else {
+                        eva = 0;
                         if (span_list[0]) {
                             var nums = span_list.length;
                             num.removeChild(span_list[nums - 1]);
