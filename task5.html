@@ -46,6 +46,49 @@
             var random = document.getElementById("random");
             var eva = 0;
 
+            // 冒泡排序 
+                list_main.addEventListener('click', function () {
+                    if (span_list[0]) {
+                        if (eva == 1) {
+                            alert("正在排序哦！");
+                        } else if (eva == 2) {
+                            alert("已排序完毕哦！");
+                        } else {
+                            var j = 0;
+                            var i = 0;
+                            var timer = setInterval(onSort, 80);
+                            function onSort() {
+                                eva = 1;
+                                var y = span_list.length - 1;
+                                if (i < y) {//排序次数
+                                    var n = y - i;
+                                    if (j < n) {//需要排序的个数
+                                        var list_1 = parseInt(span_list[j].innerHTML);
+                                        var list_2 = parseInt(span_list[j + 1].innerHTML);
+                                        if (list_1 > list_2) {
+                                            span_list[j] = span_list[j + 1];
+                                            num.insertBefore(span_list[j + 1], span_list[j]);
+                                        }
+                                        span_list[j].style.backgroundColor = "#d6ecf0";
+                                        span_list[j + 1].style.backgroundColor = "#ffc773";
+                                        j++
+                                    } else {//如果已无需排序，则变色
+                                        span_list[j].style.backgroundColor = "#bce672";
+                                        i++;
+                                        j = 0;
+                                    }
+                                } else {
+                                    span_list[0].style.backgroundColor = "#bce672";
+                                    eva = 2;
+                                    clearInterval(timer);
+                                }
+                            }
+                            i = 0;
+                        }
+                    } else {
+                        alert("队列为空哦~");
+                    }
+                })
 
             //点击时
             function click() {
@@ -119,7 +162,6 @@
                         }
                     }
                 }
-
                 // 右侧出
                 right_out.onclick = function () {
                     if (eva == 1) {
@@ -135,7 +177,6 @@
                     }
                 }
 
-
                 // 随机生成60个数
                 random.addEventListener('click', function () {
                     if (eva == 1) {
@@ -150,12 +191,11 @@
                             list.style.height = text * 2 + "px";
                             list.appendChild(node);
                             num.appendChild(list);
-                        //一次随机排序后，将第一个永远置为原始色
-                        span_list[0].style.backgroundColor = "#d6ecf0";
+                            //一次随机排序后，将第一个永远置为原始色
+                            span_list[0].style.backgroundColor = "#d6ecf0";
                         }
                     }
                 })
-
             }
 
             //快速排序
@@ -189,52 +229,8 @@
                 }
             }
 
-            // 冒泡排序        
-            list_main.onclick = function () {
-                if (span_list[0]) {
-                    if (eva == 1) {
-                        alert("正在排序哦！");
-                    } else if (eva == 2) {
-                        alert("已排序完毕哦！");
-                    } else {
-                        var j = 0;
-                        var i = 0;
-                        setInterval(onSort, 80);
-                        function onSort() {
-                            eva = 1;
-                            var y = span_list.length - 1;
-                            if (i < y) {//排序次数
-                                var n = y - i;
-                                if (j < n) {//需要排序的个数
-                                    var list_1 = parseInt(span_list[j].innerHTML);
-                                    var list_2 = parseInt(span_list[j + 1].innerHTML);
-                                    if (list_1 > list_2) {
-                                        span_list[j] = span_list[j + 1];
-                                        num.insertBefore(span_list[j + 1], span_list[j]);
-                                    }
-                                    span_list[j].style.backgroundColor = "#d6ecf0";
-                                    span_list[j + 1].style.backgroundColor = "#ffc773";
-                                    j++
-                                } else {//如果已无需排序，则变色
-                                    span_list[j].style.backgroundColor = "#bce672";
-                                    i++;
-                                    j = 0;
-                                }
-                            }else{
-                                span_list[0].style.backgroundColor = "#bce672";
-                                eva = 2;
-                            }
-                        }
-                        i = 0;
-                    }
-                } else {
-                    alert("队列为空哦~");
-                }
-            }
-
             click();
         })()
     </script>
 </body>
-
 </html>
