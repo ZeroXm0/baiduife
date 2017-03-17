@@ -50,7 +50,7 @@
             function click () {
                 //左侧入
                 left_in.onclick = function (){
-                    if(eva !=0){
+                    if(eva == 1){
                         alert("正在排序哦！");
                     }else{
                     var text = input.value;
@@ -76,7 +76,7 @@
                 }
                 //右侧入
                 right_in.onclick = function (){
-                    if(eva !=0){
+                    if(eva == 1){
                         alert("正在排序哦！");
                     }else{
                     var text = input.value;
@@ -103,7 +103,7 @@
 
                 // 左侧出
                 left_out.onclick = function (){
-                    if(eva !=0){
+                    if(eva == 1){
                         alert("正在排序哦！");
                     }else{
                     var child=document.getElementsByTagName("span")[0];
@@ -117,7 +117,7 @@
 
                 // 右侧出
                 right_out.onclick = function (){
-                    if(eva !=0){
+                    if(eva == 1){
                         alert("正在排序哦！");
                     }else{
                     var child = document.getElementsByTagName("span");
@@ -133,7 +133,7 @@
 
                 // 随机生成60个数
                 random.addEventListener('click',function(){
-                     if(eva !=0){
+                     if(eva == 1){
                         alert("正在排序哦！");
                     }else{
                     num.innerHTML = "";
@@ -152,7 +152,7 @@
             
             //快速排序
                 list_quick.onclick = function (){
-                    if(eva !=0){
+                    if(eva == 1){
                         alert("正在排序哦！");
                         }else if(eva == 2){
                         alert("已排序完毕哦！");
@@ -207,11 +207,12 @@
                         i++;
                         j = 0;
                         }
+                    }else{
+                        span_list[0].style.backgroundColor = "#bce672";
+                        eva = 2;
                     }
                     }
-                    span_list[0].style.backgroundColor = "#bce672";
                     i = 0;
-                    eva = 2;
                     }
             }
 
