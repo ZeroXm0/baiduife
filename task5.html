@@ -9,7 +9,7 @@
             width: 30px;
             display: inline-block;
             margin-left: 5px;
-            background: #6495ed;
+            background: #d6ecf0;
             vertical-align:bottom;
             margin-bottom: 5px;
         }
@@ -128,20 +128,32 @@
 
             }
             // 冒泡排序
+                    
                 list_main.onclick = function (){
+                        var j = 0;
+                    var i = 0;
+                    setInterval(onSort,80);
+                    function onSort(){
                     eva = 1;
                     var y = span_list.length - 1;
-                    for(var i = 0;i < y;i++) {
-                        var n =  y-i;
-                        for (var j = 0 ; j < n ;j++) {
+                    if(i < y){//排序次数
+                        var n =  y - i;
+                        if(j < n){//需要排序的个数
                             var list_1 = parseInt(span_list[j].innerHTML);
                             var list_2 = parseInt(span_list[j + 1].innerHTML);
-                            console.log(list_1);
                             if (list_1 > list_2) {
                                 span_list[j] = span_list[j + 1];
                                 num.insertBefore(span_list[j+1],span_list[j]);
                             }
+                            span_list[j].style.backgroundColor = "#d6ecf0";
+						    span_list[j+1].style.backgroundColor = "#ffc773";
+                            j++
+                        }else{//如果已无需排序，则变色
+                        span_list[j].style.backgroundColor = "#bce672";
+                        i++;
+                        j = 0;
                         }
+                    }
                     }
             }
 
