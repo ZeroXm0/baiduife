@@ -199,7 +199,7 @@
                     } else {
                         var j = 0;
                         var i = 0;
-                        setInterval(onSort, 80);
+                        var timer = setInterval(onSort, 80);
                         function onSort() {
                             eva = 1;
                             var y = span_list.length - 1;
@@ -223,6 +223,7 @@
                             }else{
                                 span_list[0].style.backgroundColor = "#bce672";
                                 eva = 2;
+                                clearInterval(timer);
                             }
                         }
                         i = 0;
