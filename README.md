@@ -1,4 +1,3 @@
-bbs
 
 查看demo：
 task1    https://zeroxm0.github.io/bbs
