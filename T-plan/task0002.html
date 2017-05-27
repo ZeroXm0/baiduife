@@ -8,6 +8,38 @@
     <style>
     body {
         width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    /* 導航欄 */
+    .banner {
+        width: 100%;
+        height: 55px;
+        background: #000;
+    }
+    .banner ul {
+        float: right;
+        margin: 0;
+        padding: 0;
+    }
+    .banner li {
+        height: 55px;
+        line-height: 55px;
+        list-style: none;
+        float :left;
+        padding-right: 20px;
+    }
+    .banner a {
+        text-decoration: none;
+        color: #fff;
+    }
+    .banner a:hover {
+        color: #bdbdbd;
+    }
+    /* 清除浮動 */
+    .banner::after {
+        content: "";
+        clear: both;
     }
     table {
         width: 100%;
@@ -59,13 +91,15 @@
     </style>
 </head>
 <body>
-    <h1>网站一级标题</h1>
+    <!--<h1>网站一级标题</h1>-->
+    <div class="banner">
     <ul>
         <li><a href="#1">导航链接一</a></li>
         <li><a href="#2">导航链接二</a></li>
         <li><a href="#3">导航链接三</a></li>
         <li><a href="#4">导航链接四</a></li>
     </ul>
+    </div>
     <h3 id="1">文章一级标题</h3>
     <h4>文章二级标题</h4>
     <p>文章作者 文章发表时间</p>
